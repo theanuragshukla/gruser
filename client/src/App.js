@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import { useState } from "react";
 import Navbar from "./common/Navbar";
 import UserProfile from "./components/UserProfile";
+import Test from './Test'
 import { UserContext } from "./utils/UserContext";
 function App() {
   const [user, setUser] = useState({
@@ -25,6 +26,7 @@ function App() {
     "GitHub": "https://github.com/johndoe",
   }}
 />
+	  <Test/>
       </Box>
     </UserContext.Provider>
   );
