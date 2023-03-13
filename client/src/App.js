@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Box } from "@chakra-ui/react";
+import { useState } from "react";
+import Navbar from "./common/Navbar";
+import UserProfile from "./components/UserProfile";
+import { UserContext } from "./utils/UserContext";
 function App() {
+  const [user, setUser] = useState({
+    connected: false,
+    address: null,
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{ user, setUser }}>
+      <Box>
+        <Navbar />
+     <UserProfile
+  name="John Doe"
+  avatarUrl="https://example.com/avatar.jpg"
+  bio="Software engineer, coffee lover, and music enthusiast"
+  info={{
+    "Date of Birth": "January 1, 1990",
+    "Address": "123 Main St, Anytown USA",
+    "Twitter": "https://twitter.com/johndoe",
+    "LinkedIn": "https://www.linkedin.com/in/johndoe",
+    "GitHub": "https://github.com/johndoe",
+  }}
+/>
+      </Box>
+    </UserContext.Provider>
   );
 }
 

@@ -1,6 +1,13 @@
 require("@nomicfoundation/hardhat-toolbox");
 
-/** @type import('hardhat/config').HardhatUserConfig */
+require('dotenv').config()
 module.exports = {
-  solidity: "0.8.18",
-};
+  solidity: "0.8.9",
+  networks: {
+    polygon: {
+      url: process.env.API_URL,
+      accounts: [process.env.SECRET_KEY],
+    }
+  }
+};;
+
